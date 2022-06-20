@@ -1,17 +1,30 @@
-let pokemonList = [
-  {name: `Venusaur`, height: `2.0`, types: [`grass`, `poison`]},
+let pokemonRepository = (function () {
+ let pokemonList = [
+  {name: `Venusaur`, height: `2.0`, type: [`grass`, `poison`]},
   {name: `Squirtle`, height: `0.4`, type: `water`},
   {name: `Charmander`, height: `0.6`, type: `fire`}
 ];
 
-for (let i=0; i<pokemonList.length; i++){
-    document.write(pokemonList[i].name +' '+'height is '+ pokemonList[i].height +' cm')
-
-    if(pokemonList[i].height >= 1.6){
-        document.write('  Size Large "Wow, thats\'s big!"' + '<br>')
-    } else if(pokemonList[i].height >=0.5 && pokemonList[i].height <=1.0){
-        document.write('  Size Medium' +'<br>')
-    } else {
-        document.write('  Size Small' +'<br>') 
-    }
+ function getAll() {
+  return pokemonList;
 }
+
+ function add (pokemon) {
+  if (typeof pokemon === 'object' && 'name' in pokemon &&
+            "height" in pokemon &&
+            "type" in pokemon) {
+            PokemonList.push(pokemon);
+        } else {
+            console.log(`Pokemon is not valid!`);
+        }
+};
+
+ return {
+   getAll: getAll,
+   add: add,
+ };
+
+})();
+
+let pokemonList = pokemonRepository.getAll();
+
