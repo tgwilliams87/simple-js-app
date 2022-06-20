@@ -5,6 +5,7 @@ let pokemonRepository = (function () {
   {name: `Charmander`, height: `0.6`, type: `fire`}
 ];
 
+
  function getAll() {
   return pokemonList;
 }
@@ -28,3 +29,4 @@ let pokemonRepository = (function () {
 
 let pokemonList = pokemonRepository.getAll();
 
+pokemonList.forEach( pokemon => console.log (pokemon) );
