@@ -5,6 +5,9 @@ let pokemonRepository = (function () {
   {name: `Charmander`, height: `0.6`, type: `fire`}
 ];
 
+Object.keys(pokemonList).forEach(function(property) {
+  document.write(property + ': ' +pokemonList[property] + '<br>');
+});
 
  function getAll() {
   return pokemonList;
@@ -20,6 +23,7 @@ let pokemonRepository = (function () {
         }
 };
 
+
  return {
    getAll: getAll,
    add: add,
@@ -27,6 +31,5 @@ let pokemonRepository = (function () {
 
 })();
 
-let pokemonList = pokemonRepository.getAll();
+console.log(pokemonRepository.getAll());
 
-pokemonList.forEach( pokemon => console.log (pokemon) );
