@@ -38,8 +38,8 @@ let pokemonRepository = (function () {
     });
   }
 
-  function showDetails(pokemon){
-    console.log(pokemon)
+  function showDetails(property){
+    console.log(property.name)
   }
 
  return {
