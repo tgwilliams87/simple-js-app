@@ -77,6 +77,15 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
        modalContainer.innerHTML = '';
+      modalBody.innerHTML = ` `;
+        Entry: ${pokemon.id}<br>
+        Height: ${pokemon.height}<br>
+        Weight: ${pokemon.weight}<br>
+        Types: ${pokemon.types[0].type.name}`;
+
+        modalBody.innerHTML += `<br>
+        <img src=${pokemon.imageFrontUrl} alt="${pokemon.name} front sprite">
+        <img src=${pokemon.imageBackUrl} alt="${pokemon.name} back sprite">
     });    
   }
 
