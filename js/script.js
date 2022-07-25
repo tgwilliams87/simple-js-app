@@ -8,11 +8,12 @@ let pokemonRepository = (function () {
       typeof pokemon === "object" &&
       "name" in pokemon    
     )  {
-      pokemonList.push(pokemon);
+      pokemonList.push(pokemon)
     } else {
-      console.log("pokemon is not valid");
+      console.log("pokemon is not valid")
     }
   }
+  
 
   function getAll() {
    return pokemonList;
