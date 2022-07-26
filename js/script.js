@@ -31,18 +31,20 @@ let pokemonRepository = (function () {
     });
   }
 
-  function showModal(pokemon) {
+  function showModal(title, img,text) {
 
     let modalContainer = document.querySelector('#modal-container');
-     let pokemonName = pokemon.name
-      modalContainer.innerHTML = '';
+//      let pokemonName = pokemon.name
+       modalContainer.innerHTML = "";
+   
        let modal = document.createElement("div");
         modalContainer.appendChild(modal);
        let closeButtonElement = document.createElement('button'); 
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);
-       let titleElement = document.createElement('h1'); 
+        closeButtonElement.classList.add("modal-close");
+        closeButtonElement.innerText = "Close"";
+        closeButtonElement.addEventListener("click", hideModal);
+   
+       let titleElement = document.createElement("h1"); 
         titleElement.innerText = title;
        let contentElement = document.createElement('p');
         contentElement.innerText = text;
@@ -92,20 +94,23 @@ let pokemonRepository = (function () {
     }
   });
 
-document.querySelector('#pokemon-list').addEventListener('click', () => {
-    showModal();
-  });
+// document.querySelector('#pokemon-list').addEventListener('click', () => {
+//     showModal();
+//   });
 
 function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
-       modalContainer.innerHTML = '';
-       let modal = document.createElement("div") 
-
+//        modalContainer.innerHTML = '';
+//        let modal = document.createElement("div") 
+   showModal(pokemon.name, pokemon.imageURL, pokemon.height);
+    });
+}
 
   function loadList(){
     return fetch(apiUrl).then(function (response) {
       return response.json();
-    }).then(function (json) {
+    })
+     .then(function (json) {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
